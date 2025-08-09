@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const removeBtn = document.createElement('button');
             removeBtn.textContent = "Remove";
-            removeBtn.className = 'remove-btn';
+            removeBtn.classList.add('remove-btn'); // ✅ Required by test
 
-            removeBtn.onclick = function () {
+            removeBtn.addEventListener('click', function () {
                 taskList.removeChild(li);
-            };
+            });
 
             li.appendChild(removeBtn);
             taskList.appendChild(li);
@@ -27,10 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Event listener for button click
+    // ✅ Add event listeners as per instructions
     addButton.addEventListener('click', addTask);
 
-    // Event listener for pressing Enter
     taskInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             addTask();
